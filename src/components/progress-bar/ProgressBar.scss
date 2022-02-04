@@ -1,0 +1,21 @@
+div.bar-container {
+    height: 17px;
+    border: 1px solid #282828;
+    margin: 15px 20px 5px 20px;
+    border-radius: 100px;
+    position: relative;
+    div.progress-bar {
+        height: 7px;
+        background: #3DBF00;
+        border-radius: 100px;
+        width: 25%;
+        margin: 4px;
+    }    
+}
+
+p.progress-number {
+    font-size: 1.7rem;
+    color: #282828c2;
+    font-weight: 600;
+    margin: 5px 20px 15px 25px;
+}

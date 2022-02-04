@@ -1,0 +1,30 @@
+$font-color: #282828;
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    height: fit-content;
+    margin: 30px 20px 8px 20px;
+    h2 {
+        margin: 0;
+        font-size: 4.1rem;
+        color: $font-color;
+    }
+    div.info-container {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: end;
+        p.date {
+            font-size: 1.7rem;
+            color: #282828c2;
+            font-weight: 600;
+        }
+        p.counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $font-color;
+        }
+    }
+}

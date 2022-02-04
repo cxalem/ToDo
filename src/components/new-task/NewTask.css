@@ -1,0 +1,63 @@
+div.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 20px 15px 20px;
+  background: #1e00d726;
+  -webkit-box-shadow: 0px 0px 15px #00000025;
+          box-shadow: 0px 0px 15px #00000025;
+  height: 45px;
+  border-radius: 100px;
+}
+
+div.form-container input.add-input {
+  color: #282828;
+  font-size: 1.5rem;
+  border-width: 0;
+  width: 100%;
+  background: none;
+  border-radius: 100px;
+  padding: 10px 20px;
+}
+
+div.form-container input.add-input:focus {
+  outline: 0px;
+}
+
+div.form-container input.add-input::-webkit-input-placeholder {
+  color: #28282869;
+}
+
+div.form-container input.add-input:-ms-input-placeholder {
+  color: #28282869;
+}
+
+div.form-container input.add-input::-ms-input-placeholder {
+  color: #28282869;
+}
+
+div.form-container input.add-input::placeholder {
+  color: #28282869;
+}
+
+div.form-container button.add-btn {
+  border-width: 0px;
+  background: none;
+  width: 65px;
+  border-radius: 0 100px 100px 0;
+}
+
+div.form-container button.add-btn:hover {
+  background: #634bff18;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+div.form-container button.add-btn img {
+  color: #282828;
+  width: 17px;
+}
+/*# sourceMappingURL=NewTask.css.map */
