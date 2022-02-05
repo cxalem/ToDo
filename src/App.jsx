@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from 'react'
 import './App.css'
 import { Header } from './components/header/Header.jsx'
 import { NewTask } from './components/new-task/NewTask'
@@ -15,17 +16,17 @@ import { ToDoList } from './components/todo-list/ToDoList'
 // ]
 
 function useLocalStorage(itemName, initialValue) {
-  const localStorageItems = localStorage.getItem(itemName);
-  let parsedItems;
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
 
-  if (!localStorageItems) {
+  if (!localStorageItem) {
     localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItems = [];
+    parsedItem = initialValue;
   } else {
-      parsedItems = JSON.parse(localStorageItems);
+      parsedItem = JSON.parse(localStorageItem);
   }
   
-  const [itemsValue, setItemsValue] = useState(parsedItems);
+  const [itemsValue, setItemsValue] = React.useState(parsedItem);
 
   const saveItems = (newItem) => {
     const stringifiedItem = JSON.stringify(newItem);
@@ -40,36 +41,36 @@ function useLocalStorage(itemName, initialValue) {
 }
 
 function App() {
-  const [itemsValue, saveItems] = useLocalStorage('TODOS_V1', []);
+  const [toDos, saveToDos] = useLocalStorage('TODOS_V1', []);
 
   // How many to-dos completed we have
-  const completedToDos = itemsValue.filter(todo => !!todo.completed).length;
+  const completedToDos = toDos.filter(todo => !!todo.completed).length;
   //To-Dos Total
-  const totalToDos = itemsValue.length;
+  const totalToDos = toDos.length;
   //Marking our to-dos as completed
 
   const completeToDo = (text) => {
-    const toDoIndex = itemsValue.findIndex( toDo => toDo.text === text);
-    const newDefaultToDos = [...itemsValue];
+    const toDoIndex = toDos.findIndex( toDo => toDo.text === text);
+    const newDefaultToDos = [...toDos];
     newDefaultToDos[toDoIndex].completed = !newDefaultToDos[toDoIndex].completed;
-    saveItems(newDefaultToDos);
+    saveToDos(newDefaultToDos);
   }
 
   const deleteToDo = (text) => {
-    const toDoIndex = itemsValue.findIndex( toDo => toDo.text === text);
-    const newDefaultToDos = [...itemsValue];
+    const toDoIndex = toDos.findIndex( toDo => toDo.text === text);
+    const newDefaultToDos = [...toDos];
     newDefaultToDos.splice(toDoIndex, 1);
-    saveItems(newDefaultToDos);
+    saveToDos(newDefaultToDos);
   }
 
-  return (
+  return [
     <>
       <Header completed={completedToDos} total={totalToDos} />
       <ProgressBar />
       <NewTask />
 
       <ToDoList>
-        {itemsValue.map(toDo => (
+        {toDos.map(toDo => (
           <ToDoItem 
           key={toDo.text} 
           completed={toDo.completed} 
@@ -82,7 +83,7 @@ function App() {
 
       <SearchButton />
     </>
-  )
+  ]
 }
 
 export default App
