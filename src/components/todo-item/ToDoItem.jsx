@@ -1,13 +1,16 @@
 import React from 'react';
+import './ToDoItem.css';
 
 const ToDoItem = (props) => {
   return (
-      <li>
-          <img src="/src/public/uncheck.svg" alt="" />
-          <p>{props.text}</p>
-          <img src="/src/public/trash.svg" alt="" />
+      <li className={`items ${props.completed && 'completed'}`}>
+          <img onClick={props.onComplete} src={props.completed ? "/src/public/checked.svg" : "/src/public/uncheck.svg"} alt="" />
+          <div className="item-info">
+            <p>{props.text}</p>
+            <img onClick={props.onDelete} src="/src/public/trash.svg" alt="" />
+          </div>
       </li>
   );
 };
 
-export default ToDoItem;
+export { ToDoItem };

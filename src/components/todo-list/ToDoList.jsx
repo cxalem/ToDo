@@ -1,8 +1,9 @@
 import React from 'react';
+import './ToDoList.css';
 
 const ToDoList = (props) => {
   return (
-    <section>
+    <section className='items-list'>
         <ul>
             {props.children}
         </ul>
