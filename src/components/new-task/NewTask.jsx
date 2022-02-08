@@ -1,14 +1,16 @@
 import React from 'react';
 import './NewTask.css';
-;
 
 
-const NewTask = () => {
+const NewTask = (props) => {
   return (
-    <div className='form-container'>
-        <input className='add-input' type="text" placeholder='Add a new task...' />
-        <button className='add-btn' type='button'><img src="/src/public/plus.svg" alt="add" /></button>
-    </div>
+      <form 
+      className='form-container'
+      onSubmit={props.submit}
+      >
+        <input {...props.register} name='addTask' className='add-input' type="text" placeholder='Add a new task...' />
+        <button type="submit" className='add-btn'><img src="/src/public/plus.svg" alt="add" /></button>
+      </form>
   );
 };
 
