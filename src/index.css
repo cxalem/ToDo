@@ -15,3 +15,10 @@ body {
   font-family: Roboto;
   background: url(./public/background.png) no-repeat fixed center;
 }
+
+#root {
+  max-width: 565px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}

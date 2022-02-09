@@ -1,0 +1,63 @@
+div.skeleton-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 13px;
+}
+
+div.skeleton-list div.skeleton-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 30fr;
+      grid-template-columns: 1fr 30fr;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+  margin: 0 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 15%;
+}
+
+div.skeleton-list div.skeleton-container div.check-skeleton {
+  height: 45px;
+  width: 45px;
+  border-radius: 5px;
+  background-image: linear-gradient(90deg, #696969 0px, #9b9b9b 40px, #696969 80px);
+  background-size: 580px;
+  -webkit-animation: shine 1.5s infinite linear;
+          animation: shine 1.5s infinite linear;
+}
+
+div.skeleton-list div.skeleton-container div.task-skeleton {
+  height: 45px;
+  background: #696969;
+  border-radius: 5px;
+  background-image: linear-gradient(90deg, #696969 0px, #9b9b9b 40px, #696969 80px);
+  background-size: 580px;
+  -webkit-animation: shine 1.5s infinite linear;
+          animation: shine 1.5s infinite linear;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    background-position: -290px;
+  }
+  100% {
+    background-position: 290px;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -290px;
+  }
+  100% {
+    background-position: 290px;
+  }
+}
+/*# sourceMappingURL=LoadingSkeleton.css.map */

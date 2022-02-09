@@ -6,6 +6,9 @@ import { SearchButton } from "./components/search-button/SearchButton";
 import { ToDoItem } from "./components/todo-item/ToDoItem";
 import { ToDoList } from "./components/todo-list/ToDoList";
 import { ToDoContext } from "./components/to-do-context/ToDoContext";
+import { Error } from "./components/error/Error.jsx";
+import { LoadingSkeleton } from "./components/loading-skeleton/LoadingSkeleton.jsx";
+import { FirstTask } from "./components/first-task/FirstTask.jsx";
 
 const AppUI = () => {
   const { error, loading, toDos, completeToDo, deleteToDo, onSubmit, register, handleSubmit } =
@@ -21,9 +24,9 @@ const AppUI = () => {
       />
 
       <ToDoList>
-        {error && <p className="loading">Desespérate, hubo un error...</p>}
-        {loading && <p className="loading">Estamos cargando, no desesperes...</p>}
-        {!loading && !toDos.length && <p className="loading">¡Crea tu primer ToDo!</p>}
+        {error && <Error />}
+        {loading && <LoadingSkeleton />}
+        {!loading && !toDos.length && <FirstTask />}
 
         {toDos.map((toDo) => (
           <ToDoItem
@@ -35,8 +38,6 @@ const AppUI = () => {
           />
           ))}
       </ToDoList>
-
-      <SearchButton />
     </>
   );
 };

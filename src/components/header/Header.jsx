@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header>
-        <h2>Home Tasks</h2>
+        <img src="/src/public/devam.svg" alt="Devam" />
         <div className="info-container">
           <p className="date">{todaysDate}</p>
           <p className="counter">

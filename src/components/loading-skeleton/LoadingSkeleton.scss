@@ -1,0 +1,50 @@
+$background-color: #696969;
+$shine-color: #9b9b9b;
+$avatar-offset: 52+16;
+
+@mixin background-gradient() {
+  background-image: linear-gradient(
+    90deg,
+    $background-color 0px,
+    $shine-color 40px,
+    $background-color 80px
+  );
+  background-size: 580px;
+}
+
+div.skeleton-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 13px;
+  div.skeleton-container {
+    display: grid;
+    grid-template-columns: 1fr 30fr;
+    column-gap: 15px;
+    margin: 0 20px;
+    align-items: center;
+    opacity: 15%;
+    div.check-skeleton {
+      height: 45px;
+      width: 45px;
+      border-radius: 5px;
+      @include background-gradient();
+      animation: shine 1.5s infinite linear;
+    }
+    div.task-skeleton {
+      height: 45px;
+      background: $background-color;
+      border-radius: 5px;
+      @include background-gradient();
+      animation: shine 1.5s infinite linear;
+    }
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -290px;
+  }
+  100% {
+    background-position: 290px;
+  }
+}
