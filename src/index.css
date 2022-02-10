@@ -13,7 +13,7 @@ html {
 body {
   font-size: 1.5rem;
   font-family: Roboto;
-  background: url(./public/background.png) no-repeat fixed center;
+  background: url(./img/background.png) no-repeat fixed center;
 }
 
 #root {

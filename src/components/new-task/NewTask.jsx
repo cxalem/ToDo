@@ -9,7 +9,7 @@ const NewTask = (props) => {
       onSubmit={props.submit}
       >
         <input {...props.register} autoComplete="off" name='addTask' className='add-input' type="text" placeholder='Add a new task...' />
-        <button type="submit" className='add-btn'><img src="/src/public/plus.svg" alt="add" /></button>
+        <button type="submit" className='add-btn'><img src="/src/img/plus.svg" alt="add" /></button>
       </form>
   );
 };
