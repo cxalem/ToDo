@@ -30,11 +30,11 @@ const AppUI = () => {
 
         {toDos.map((toDo) => (
           <ToDoItem
-          key={toDo.text}
+          key={toDo.id}
           completed={toDo.completed}
           text={toDo.text}
-          onComplete={() => completeToDo(toDo.text)}
-          onDelete={() => deleteToDo(toDo.text)}
+          onComplete={() => completeToDo(toDo.id)}
+          onDelete={() => deleteToDo(toDo.id)}
           />
           ))}
       </ToDoList>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useForm } from "react-hook-form";
+import UUID from "uuidjs";
 
 const ToDoContext = React.createContext();
 
@@ -18,16 +19,16 @@ const ToDoProvider = (props) => {
   const totalToDos = toDos.length;
   //Marking our to-dos as completed
 
-  const completeToDo = (text) => {
-    const toDoIndex = toDos.findIndex((toDo) => toDo.text === text);
+  const completeToDo = (id) => {
+    const toDoIndex = toDos.findIndex((toDo) => toDo.id === id);
     const newDefaultToDos = [...toDos];
     newDefaultToDos[toDoIndex].completed =
       !newDefaultToDos[toDoIndex].completed;
     saveToDos(newDefaultToDos);
   };
 
-  const deleteToDo = (text) => {
-    const toDoIndex = toDos.findIndex((toDo) => toDo.text === text);
+  const deleteToDo = (id) => {
+    const toDoIndex = toDos.findIndex((toDo) => toDo.id === id);
     const newDefaultToDos = [...toDos];
     newDefaultToDos.splice(toDoIndex, 1);
     saveToDos(newDefaultToDos);
@@ -40,9 +41,11 @@ const ToDoProvider = (props) => {
     newToDo.push({
       completed: false,
       text: data.addTask,
+      id: UUID.generate(),
     })
-    saveToDos(newToDo);
+    saveToDos(newToDo); // almacena en local storage
     e.target.reset();
+    console.log(newToDo);
   };
 
   return (
